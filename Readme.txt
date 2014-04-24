@@ -1,10 +1,10 @@
 Monolingual for Elgg 1.9
-Latest Version: 1.9.1
-Released: 2013-09-12
+Latest Version: 1.9.1.1
+Released: 2014-04-18
 Contact: iionly@gmx.de
 Website: https://github.com/iionly
 License: GNU General Public License version 2
-Copyright: (C) iionly 2012-2013
+Copyright: (C) iionly 2012-2014
 
 
 This plugin removes the option for users to select their preferred site language in user settings. Therefore, you can make sure that all users of your site only see the same default site language and it will also be unnecessary to remove the core English language files, if you don't want your users to be able to select English as site language.
@@ -21,6 +21,10 @@ Installation and configuration:
 
 
 Changelog:
+
+1.9.1.1:
+
+- Fixed a deprecation issue on Elgg 1.9 with 'login', 'user' event. It's now 'login:after', 'user'.
 
 1.9.1:
 

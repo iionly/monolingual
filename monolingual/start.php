@@ -4,14 +4,14 @@
  * and set user language to site default language at login
  * if this user is not an admin
  *
- * (c) iionly 2012-2013
+ * (c) iionly 2012-2014
  */
 
 elgg_register_event_handler('init', 'system', 'monolingual_init');
 
 function monolingual_init() {
-    // React on login event
-    elgg_register_event_handler('login', 'user', 'monolingual_set_user_language');
+	// React on login event
+	elgg_register_event_handler('login:after', 'user', 'monolingual_set_user_language');
 }
 
 /**
@@ -19,16 +19,16 @@ function monolingual_init() {
  */
 function monolingual_set_user_language($event, $object_type, $object) {
 
-    if($event == 'login' && $object_type=='user' && $object instanceof ElggUser) {
+	if ($event == 'login:after' && $object_type=='user' && $object instanceof ElggUser) {
 
-        if (!(elgg_is_admin_user($object->guid))) {
+		if (!(elgg_is_admin_user($object->guid))) {
 
-            if (elgg_get_config('language')) {
-                $object->language = elgg_get_config('language');
-                $object->save();
-            }
-        }
-    }
+			if (elgg_get_config('language')) {
+				$object->language = elgg_get_config('language');
+				$object->save();
+			}
+		}
+	}
 
-    return true;
+	return true;
 }
