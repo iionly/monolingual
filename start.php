@@ -4,7 +4,7 @@
  * and set user language to site default language at login
  * if this user is not an admin
  *
- * (c) iionly 2012-2014
+ * (c) iionly 2012
  */
 
 elgg_register_event_handler('init', 'system', 'monolingual_init');

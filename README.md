@@ -1,11 +1,16 @@
-Monolingual for Elgg 1.9
-Latest Version: 1.9.1.1
-Released: 2014-04-18
-Contact: iionly@gmx.de
-Website: https://github.com/iionly
-License: GNU General Public License version 2
-Copyright: (C) iionly 2012-2014
+Monolingual for Elgg 1.9 - 1.12 and Elgg 2.X
+============================================
 
+Latest Version: 1.9.2  
+Released: 2015-09-19  
+Contact: iionly@gmx.de  
+Website: https://github.com/iionly  
+License: GNU General Public License version 2  
+Copyright: (C) iionly 2012
+
+
+Description
+-----------
 
 This plugin removes the option for users to select their preferred site language in user settings. Therefore, you can make sure that all users of your site only see the same default site language and it will also be unnecessary to remove the core English language files, if you don't want your users to be able to select English as site language.
 
@@ -14,26 +19,9 @@ In addition to removing the language selection option in user settings this plug
 The execption to the language restriction are admins. They still can select their preferred language in their user settings. So, admins can select a site language different to the default site language.
 
 
-Installation and configuration:
+Installation
+------------
 
-1. Copy the monolingual plugin folder into you mod folder,
-2. Enable the monolingual plugin in the admin section of your site.
-
-
-Changelog:
-
-1.9.1.1:
-
-- Fixed a deprecation issue on Elgg 1.9 with 'login', 'user' event. It's now 'login:after', 'user'.
-
-1.9.1:
-
- - Updated for Elgg 1.9.
-
-1.8.1:
-
- - Avoiding warning message of user's language settings not being saved for normal users when saving user settings.
-
-1.8.0:
-
- - Initial release.
+1. If you have a previous version of the Monolingual plugin installed, first remove the old monolingual plugin folder from your mod directory before copying/extracting the new version to your server,
+2. Copy the monolingual plugin folder into you mod folder,
+3. Enable the Monolingual plugin in the admin section of your site.

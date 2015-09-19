@@ -7,7 +7,7 @@
  *
  * Removing language selection in user settings for non-admins by overwriting core view
  *
- * (c) iionly 2012-2014
+ * (c) iionly 2012
  *
  */
 

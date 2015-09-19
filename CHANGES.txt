@@ -1,0 +1,28 @@
+Changelog
+=========
+
+1.9.2
+-----
+
+- Verified that it works both on Elgg 1.X and 2.X,
+- composer.json added.
+
+1.9.1.1
+-------
+
+- Fixed a deprecation issue on Elgg 1.9 with 'login', 'user' event. It's now 'login:after', 'user'.
+
+1.9.1
+-----
+
+- Updated for Elgg 1.9.
+
+1.8.1
+-----
+
+- Avoiding warning message of user's language settings not being saved for normal users when saving user settings.
+
+1.8.0
+-----
+
+- Initial release.
