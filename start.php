@@ -18,13 +18,11 @@ function monolingual_init() {
  * Set the user language to site language at login time to take into account the currently selected site language
  */
 function monolingual_set_user_language($event, $object_type, $object) {
-
-	if ($event == 'login:after' && $object_type=='user' && $object instanceof ElggUser) {
-
-		if (!(elgg_is_admin_user($object->guid))) {
-
-			if (elgg_get_config('language')) {
-				$object->language = elgg_get_config('language');
+	if ($object instanceof ElggUser) {
+		if (!($object->isAdmin())) {
+			$site_lang = elgg_get_config('language');
+			if ($object->language != $site_lang) {
+				$object->language = $site_lang;
 				$object->save();
 			}
 		}

@@ -1,8 +1,8 @@
-Monolingual for Elgg 1.9 - 1.12 and Elgg 2.X
-============================================
+Monolingual for Elgg 2.3 and newer Elgg 2.X
+===========================================
 
-Latest Version: 1.9.2  
-Released: 2015-09-19  
+Latest Version: 2.3.3  
+Released: 2018-09-18  
 Contact: iionly@gmx.de  
 Website: https://github.com/iionly  
 License: GNU General Public License version 2  

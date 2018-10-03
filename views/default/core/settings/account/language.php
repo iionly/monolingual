@@ -13,15 +13,28 @@
 
 $user = elgg_get_page_owner_entity();
 
-if ($user && elgg_is_admin_user($user->guid)) {
-	$title = elgg_echo('user:set:language');
-	$content = elgg_echo('user:language:label') . ': ';
-	$content .= elgg_view("input/select", array(
+if (!($user instanceof ElggUser)) {
+	return;
+}
+
+$options = get_installed_translations();
+
+if (!($user->isAdmin()) || (count($options) < 2)) {
+	echo elgg_view_field([
+		'#type' => 'hidden',
 		'name' => 'language',
 		'value' => $user->language,
-		'options_values' => get_installed_translations()
-	));
-	echo elgg_view_module('info', $title, $content);
-} elseif ($user && elgg_get_config('language')) {
-	echo elgg_view('input/hidden', array('name' => 'language', 'value' => elgg_get_config('language')));
+	]);
+
+	return;
 }
+
+$content = elgg_view_field([
+	'#type' => 'select',
+	'name' => 'language',
+	'value' => $user->language,
+	'options_values' => $options,
+	'#label' => elgg_echo('user:language:label'),
+]);
+
+echo elgg_view_module('info', elgg_echo('user:set:language'), $content);
