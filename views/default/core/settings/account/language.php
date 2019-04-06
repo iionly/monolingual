@@ -17,7 +17,7 @@ if (!($user instanceof ElggUser)) {
 	return;
 }
 
-$options = get_installed_translations();
+$options = get_installed_translations(true);
 
 if (!($user->isAdmin()) || (count($options) < 2)) {
 	echo elgg_view_field([
