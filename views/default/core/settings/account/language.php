@@ -13,11 +13,12 @@
 
 $user = elgg_get_page_owner_entity();
 
-if (!($user instanceof ElggUser)) {
+if (!$user instanceof ElggUser) {
 	return;
 }
 
 $options = get_installed_translations(true);
+$options = array_intersect_key($options, array_flip(elgg()->translator->getAllowedLanguages()));
 
 if (!($user->isAdmin()) || (count($options) < 2)) {
 	echo elgg_view_field([
@@ -25,7 +26,7 @@ if (!($user->isAdmin()) || (count($options) < 2)) {
 		'name' => 'language',
 		'value' => $user->language,
 	]);
-
+	
 	return;
 }
 
