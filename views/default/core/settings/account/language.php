@@ -11,16 +11,20 @@
  *
  */
 
-$user = elgg_get_page_owner_entity();
-
+$user = elgg_extract('entity', $vars, elgg_get_page_owner_entity());
 if (!$user instanceof ElggUser) {
 	return;
 }
 
-$options = get_installed_translations(true);
+$who_can_change_language = elgg_get_config('who_can_change_language', 'everyone');
+if ($who_can_change_language === 'nobody') {
+	return;
+}
+
+$options = elgg()->translator->getInstalledTranslations(true);
 $options = array_intersect_key($options, array_flip(elgg()->translator->getAllowedLanguages()));
 
-if (!($user->isAdmin()) || (count($options) < 2)) {
+if (!(elgg_is_admin_logged_in()) || (count($options) < 2)) {
 	echo elgg_view_field([
 		'#type' => 'hidden',
 		'name' => 'language',
